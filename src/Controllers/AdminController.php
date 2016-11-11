@@ -120,7 +120,19 @@ class AdminController
         if (is_null($file)) {
             $message = 'No file uploaded!';
         } else {
-            //TODO: e5 - upload file, save file details in db
+            $filename = uniqid('', true) . '.' . $file->getClientOriginalExtension();
+
+            try {
+                $file->move(self::IMAGE_UPLOAD_DIR, $filename);
+
+                //TODO: e8 - send image to Emotion API, save results in db
+
+                $imageModel = new ImageModel($dbConnection);
+                $imageModel->save($profile['IdUser'], $filename);
+
+            } catch (FileException $e) {
+
+            }
         }
 
         //TODO: e6 - add feedback messages on upload image

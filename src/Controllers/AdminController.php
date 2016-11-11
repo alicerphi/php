@@ -39,7 +39,7 @@ class AdminController
             'firstName'            => $userDetails['FirstName'],
             'lastName'             => $userDetails['LastName'],
             'email'                => $userDetails['Email'],
-            'gender'               => $userDetails['Gender'],
+            //TODO: e2 - add gender field
             'programmingLanguages' => explode('|', $userDetails['ProgramingLanguages']),
             'description'          => $userDetails['Description'],
             'images'               => $userImages,
@@ -66,7 +66,7 @@ class AdminController
             $firstName = $request->get('frist_name');
             $lastName = $request->get('last_name');
             $email = $request->get('email');
-            $gender = $request->get('gender');
+            //TODO: e2 - add gender field
             $userDescription = '';
             $programmingLanguages = implode('|', $request->get('programming_languages'));
 
@@ -79,7 +79,6 @@ class AdminController
                     $firstName,
                     $lastName,
                     $email,
-                    $gender,
                     $programmingLanguages,
                     $userDescription
                 );

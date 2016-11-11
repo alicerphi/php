@@ -50,16 +50,15 @@ class ProfileModel
         $firstName,
         $lastName,
         $email,
-        $gender,
         $programmingLanguages,
         $userDescription
     ) {
+        //TODO: e2 - add gender field
         // define query
         $sql = "UPDATE `users`
                 SET `FirstName`= :firstName,
                       `LastName` = :lastName,
                       `Email` = :email,
-                      `Gender` = :gender,
                       `ProgramingLanguages` = :programmingLanguages,
                       `Description` =  :userDescription
                 WHERE `username` = :username;";
@@ -69,7 +68,6 @@ class ProfileModel
             ':firstName' => $firstName,
             ':lastName' => $lastName,
             ':email' => $email,
-            ':gender' => $gender,
             ':programmingLanguages' => $programmingLanguages,
             ':userDescription' => $userDescription,
             ':username' => $username,
@@ -77,6 +75,7 @@ class ProfileModel
 
         // bind params to query and execute query
         $query = $this->dbConnection->prepare($sql);
+
         $query->execute($params);
 
         // check for updated rows

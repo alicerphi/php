@@ -160,22 +160,6 @@ class AdminController
         /** @var \PDO $dbConnection */
         $dbConnection = $app['pdo.connection'];
 
-        $imageModel = new ImageModel($dbConnection);
-        $image = $imageModel->get($imageId);
-
-        $filePath = self::IMAGE_UPLOAD_DIR . DIRECTORY_SEPARATOR . $image['FileName'];
-        if (is_file($filePath)) {
-            unlink($filePath);
-        }
-
-        $message = 'Successfully deleted image!';
-        if (!$imageModel->delete($imageId)) {
-            $message = 'An error occurred, the image was not deleted.';
-        }
-
-        // redirect with a message
-        $redirectUrl = '/admin?message=' . $message;
-
-        return $app->redirect($redirectUrl);
+        //TODO: e9 - delete image
     }
 }

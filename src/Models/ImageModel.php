@@ -75,20 +75,5 @@ class ImageModel
         return $query->fetch(\PDO::FETCH_ASSOC);
     }
 
-    /**
-     * @param $imageId
-     * @return int
-     */
-    public function delete($imageId)
-    {
-        $sql = "DELETE FROM `images` WHERE `IdImage` = :imageId;";
-        $params = [
-            ':imageId' => $imageId,
-        ];
-
-        $query = $this->dbConnection->prepare($sql);
-        $query->execute($params);
-
-        return $query->rowCount();
-    }
+    //TODO: e9 - delete image
 }

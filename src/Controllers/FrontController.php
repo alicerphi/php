@@ -46,7 +46,7 @@ class FrontController
             'username' => $userData['Username'],
             'firstName' => $userData['FirstName'],
             'lastName' => $userData['LastName'],
-            #'images' => $userImages,
+            'images' => $userImages,
         ));
     }
 

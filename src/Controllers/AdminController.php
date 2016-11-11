@@ -42,7 +42,7 @@ class AdminController
             'gender'               => $userDetails['Gender'],
             'programmingLanguages' => explode('|', $userDetails['ProgramingLanguages']),
             'description'          => $userDetails['Description'],
-            #'images'               => $userImages,
+            'images'               => $userImages,
             'message'              => $message,
         ]);
     }

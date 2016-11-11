@@ -41,10 +41,7 @@ $app->get('/admin/', 'ZWorkshop\\Controllers\\AdminController::index');
  */
 $app->post('/admin/save-profile', 'ZWorkshop\\Controllers\\AdminController::saveProfile');
 
-/**
- * Define save-image route
- */
-$app->post('/admin/save-image', 'ZWorkshop\\Controllers\\AdminController::saveImage');
+//TODO: e4 - add route for image upload
 
 /**
  * Define delete-image route

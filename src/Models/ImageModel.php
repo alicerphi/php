@@ -35,7 +35,7 @@ class ImageModel
 
         $results = $query->fetchAll(\PDO::FETCH_ASSOC);
 
-        usort($results, [$this, 'sortImages']);
+        //TODO: sort images by number of faces, ascending
 
         return $results;
     }
@@ -90,20 +90,5 @@ class ImageModel
         $query->execute($params);
 
         return $query->rowCount();
-    }
-
-    private function sortImages($image1, $image2)
-    {
-        $faces1 = json_decode($image1['ProcessingResult']);
-        $faces2 = json_decode($image2['ProcessingResult']);
-
-        switch (true) {
-            case count($faces1) < count($faces2):
-                return -1;
-            case count($faces1) > count($faces2):
-                return 1;
-            default:
-                return 0;
-        }
     }
 }

@@ -17,28 +17,7 @@ class ImageModel
         $this->dbConnection = $dbConnection;
     }
 
-    /**
-     * @param $username
-     * @return array
-     */
-    public function getUserCollection($username)
-    {
-        $sql = "SELECT `images`.IdImage, `images`.FileName, `images`.ProcessingResult FROM `users`
-                JOIN `images` USING(IdUser)
-                WHERE `username` = :username;";
-        $params = [
-            ':username' => $username,
-        ];
-
-        $query = $this->dbConnection->prepare($sql);
-        $query->execute($params);
-
-        $results = $query->fetchAll(\PDO::FETCH_ASSOC);
-
-        //TODO: sort images by number of faces, ascending
-
-        return $results;
-    }
+    //TODO: e7 - get images associated to $username
 
     public function save($userId, $fileName)
     {

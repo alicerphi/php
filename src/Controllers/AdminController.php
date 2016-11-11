@@ -31,8 +31,7 @@ class AdminController
         $userDetails = $profileModel->get($username);
 
         // get user images
-        $imageModel = new ImageModel($app['pdo.connection']);
-        $userImages = $imageModel->getUserCollection($username);
+        //TODO: e7 - list images
 
         return $app['twig']->render('admin.html.twig', [
             'title'                => 'Admin Panel',
@@ -43,7 +42,7 @@ class AdminController
             'gender'               => $userDetails['Gender'],
             'programmingLanguages' => explode('|', $userDetails['ProgramingLanguages']),
             'description'          => $userDetails['Description'],
-            'images'               => $userImages,
+            #'images'               => $userImages,
             'message'              => $message,
         ]);
     }

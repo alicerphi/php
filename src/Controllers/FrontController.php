@@ -39,15 +39,14 @@ class FrontController
             $app->abort(404, "Username $username does not exist.");
         }
 
-        $imageModel = new ImageModel($dbConnection);
-        $userImages = $imageModel->getUserCollection($username);
+        //TODO: e7 - list images
 
         return $app['twig']->render('profile.html.twig', array(
             'title' => 'Profile Page',
             'username' => $userData['Username'],
             'firstName' => $userData['FirstName'],
             'lastName' => $userData['LastName'],
-            'images' => $userImages,
+            #'images' => $userImages,
         ));
     }
 

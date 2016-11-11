@@ -130,16 +130,14 @@ class AdminController
                 $imageModel = new ImageModel($dbConnection);
                 $imageModel->save($profile['IdUser'], $filename);
 
-                $message = 'File was successfully uploaded!';
             } catch (FileException $e) {
-                $message = 'File uploaded, but could not be moved!';
+
             }
         }
 
-        // redirect with a message
-        $redirectUrl = '/admin?message=' . $message;
+        //TODO: e6 - add feedback messages on upload image
 
-        return $app->redirect($redirectUrl);
+        return $app->redirect('/admin');
     }
 
     /**
